@@ -24,7 +24,7 @@ options.add_argument('window-size=1200x600')
 f = open("list.csv", "a")
 driver = webdriver.Chrome(chrome_options=options) 
 sleep(1) 
-for i in range(0,add,inc):
+for i in range(0,add*inc,inc):
     t1 = time.time()
     u="+"+str(phone+i)
     driver.get('https://www.facebook.com/') 
@@ -56,7 +56,7 @@ for i in range(0,add,inc):
     r=r+"- "+str(round(t2-t1,1))
     print(r)
     if a==1:
-        f.write(r+"\n")
+        f.write(u+"\n")
 driver.quit() 
 f.close()
 r=""
