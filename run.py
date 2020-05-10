@@ -5,6 +5,9 @@
 #brew cask upgrade chromedriver
 import sys
 import time
+from selenium import webdriver 
+from time import sleep 
+from selenium.webdriver.chrome.options import Options  
 #####################
 #####################
 phone=int(sys.argv[1]) #218925122310
@@ -54,21 +57,21 @@ for i in range(0,add*inc,inc):
                 x=""
     a=0
     if "The password you’ve entered is incorrect." in y:
-        r=u+" [found] "
+        r=u+" , [found] "
         a=1
     if "is not associated with any Facebook account." in y or "The email or phone number you’ve entered doesn’t match any account." in y or "The phone number you’ve entered doesn’t match any account." in y:
-        r=u+" [not found] "
+        r=u+" , [not found] "
         a=2
     if "Invalid username or password" in y:
-        r=u+" [Invalid] "
+        r=u+" , [Invalid] "
         a=3
     if a==0:
-        r=u+" [Unknown] "
+        r=u+" , [Unknown] "
     t2 = time.time()
-    r=r+"- "+str(round(t2-t1,1))
+    r=r+", "+str(round(t2-t1,1))
     print(r)
     if a!=2:
-        f.write(u+"\n")
+        f.write(r+"\n")
 driver.quit() 
 f.close()
 r=""
