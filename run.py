@@ -1,5 +1,5 @@
 # run using the folowing command to ignore the warning messages
-# python -W ignore r.py 218925122310 3
+# python -W ignore run.py 218925122310 3 1
 # pre req.
 #pip install selenium
 #brew cask upgrade chromedriver
@@ -9,6 +9,7 @@ import time
 #####################
 phone=int(sys.argv[1]) #218925122310
 add=int(sys.argv[2]) #3
+inc=int(sys.argv[3]) #1
 #####################
 #####################
 from selenium import webdriver 
@@ -23,7 +24,7 @@ options.add_argument('window-size=1200x600')
 f = open("list.csv", "a")
 driver = webdriver.Chrome(chrome_options=options) 
 sleep(1) 
-for i in range(0,add):
+for i in range(0,add,inc):
     t1 = time.time()
     u="+"+str(phone+i)
     driver.get('https://www.facebook.com/') 
@@ -44,17 +45,18 @@ for i in range(0,add):
     y=x.get_attribute('innerHTML')
     a=0
     if "The password you’ve entered is incorrect." in y:
-        r=u+",found"
+        r=u+" [found] "
         a=1
     if "The email or phone number you’ve entered doesn’t match any account." in y or "The phone number you’ve entered doesn’t match any account." in y:
-        r=u+",not found"
+        r=u+" [not found] "
         a=2
     if a==0:
-        r=u+",unknown"
+        r=u+" [Unknown] "
     t2 = time.time()
-    r=r+","+str(round(t2-t1,1))
+    r=r+"- "+str(round(t2-t1,1))
     print(r)
-    f.write(r+"\n")
+    if a==1:
+        f.write(r+"\n")
 driver.quit() 
 f.close()
 r=""
