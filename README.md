@@ -9,7 +9,7 @@ The second argument [3] is the number of how many phones number to check after t
 The third argument [1] is the increment number, if it equals 1, this means to check the number after the current one
 
 # Shell Output
-The shell outout as folloing:
+The shell output as following:
 
 +218925122310 [not found] - 7.3
 
