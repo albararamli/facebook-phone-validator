@@ -19,7 +19,6 @@ options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('window-size=1200x600')
-
 f = open("list.csv", "a")
 driver = webdriver.Chrome('chromedriver',options=options) 
 sleep(1) 
@@ -57,15 +56,18 @@ for i in range(0,add*inc,inc):
     if "The password you’ve entered is incorrect." in y:
         r=u+" [found] "
         a=1
-    if "is not associated with any Facebook account." in y or "The email or phone number you’ve entered doesn’t match any account." in y or "The phone number you’ve entered doesn’t match any account." in y or "Invalid username or password" in y:
+    if "is not associated with any Facebook account." in y or "The email or phone number you’ve entered doesn’t match any account." in y or "The phone number you’ve entered doesn’t match any account." in y:
         r=u+" [not found] "
         a=2
+    if "Invalid username or password" in y:
+        r=u+" [Invalid] "
+        a=3
     if a==0:
         r=u+" [Unknown] "
     t2 = time.time()
     r=r+"- "+str(round(t2-t1,1))
     print(r)
-    if a==1:
+    if a!=2:
         f.write(u+"\n")
 driver.quit() 
 f.close()
