@@ -11,11 +11,11 @@ The third argument [1] is the increment number, if it equals 1, this means to ch
 # Shell Output
 The shell output as following:
 
-+218925122310 [not found] - 7.3
++218925122310 , [not found] , 7.0
 
-+218925122311 [found] - 7.1
++218925122312 , [found] , 9.2
 
-+218925122312 [found] - 6.2
++218925122314 , [found] , 8.4
 
 
 first columns has the phone number, second column the stauts, and last coumns the time in second the consumend to check.
