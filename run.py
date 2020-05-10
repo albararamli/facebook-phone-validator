@@ -41,7 +41,10 @@ for i in range(0,add*inc,inc):
     login_box.click() 
     sleep(1) 
     #x=driver.find_element_by_css_selector('div._4rbf')
-    x=driver.find_element_by_class_name('_4rbf')
+    try:
+        x=driver.find_element_by_class_name('_4rbf')
+    except: 
+        x=driver.find_element_by_class_name('phl')
     ###sleep(1) 
     y=x.get_attribute('innerHTML')
     a=0
