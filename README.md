@@ -2,7 +2,7 @@
 For a series of the phone, check each the phone number has a Facebook account associated with that phone number or not. The script runs in the background.
 
 # command
-python -W ignore r.py 218925122310 3
+python -W ignore run.py 218925122310 3
 
 The first argument is the international phone number that includes country code but without (+ or 00).
 The second argument is the number of how many phones number to check after the current one.
