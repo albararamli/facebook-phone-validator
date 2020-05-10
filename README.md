@@ -1,5 +1,5 @@
 # facebook-phone-validator
-For a series of the phone, check each the phone number has a Facebook account associated with that phone number or not.
+For a series of the phone, check each the phone number has a Facebook account associated with that phone number or not. The script runs in the background.
 
 # command
 python -W ignore r.py 218925122310 3
