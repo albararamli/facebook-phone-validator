@@ -5,24 +5,26 @@
 #brew cask upgrade chromedriver
 import sys
 import time
-#####################
-#####################
-phone=int(sys.argv[1]) #218925122310
-add=int(sys.argv[2]) #3
-inc=int(sys.argv[3]) #1
-#####################
-#####################
 from selenium import webdriver 
 from time import sleep 
+from selenium.webdriver.chrome.options import Options  
+#####################
+#####################
+phone= int(sys.argv[1]) #218925122310
+add= int(sys.argv[2]) #3
+inc= int(sys.argv[3]) #1
+#####################
+#####################
 p=""
 i=0
-from selenium.webdriver.chrome.options import Options  
 options = webdriver.ChromeOptions()
-options.add_argument("--headless")  
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 options.add_argument('window-size=1200x600')
 
 f = open("list.csv", "a")
-driver = webdriver.Chrome(chrome_options=options) 
+driver = webdriver.Chrome('chromedriver',options=options) 
 sleep(1) 
 for i in range(0,add*inc,inc):
     t1 = time.time()
@@ -60,6 +62,3 @@ for i in range(0,add*inc,inc):
 driver.quit() 
 f.close()
 r=""
-
-
-
