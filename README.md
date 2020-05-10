@@ -25,5 +25,7 @@ A list.csv file that contains a list of the Phone numbers that were associated w
 
 # Dependences 
 Note, Chrome browser should be available (the following command for mac-os)
+
 pip install selenium
+
 brew cask upgrade chromedriver
