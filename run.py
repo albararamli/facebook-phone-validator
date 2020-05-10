@@ -48,7 +48,7 @@ for i in range(0,add*inc,inc):
     if "The password you’ve entered is incorrect." in y:
         r=u+" [found] "
         a=1
-    if "The email or phone number you’ve entered doesn’t match any account." in y or "The phone number you’ve entered doesn’t match any account." in y:
+    if "is not associated with any Facebook account." in y or "The email or phone number you’ve entered doesn’t match any account." in y or "The phone number you’ve entered doesn’t match any account." in y:
         r=u+" [not found] "
         a=2
     if a==0:
